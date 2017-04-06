@@ -1,3 +1,2 @@
-/dubbo-zookeeper-spring-customer/
-/dubbo-zookeeper-spring-interface/
-/dubbo-zookeeper-spring-provider/
+/target/
+
