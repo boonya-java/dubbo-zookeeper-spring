@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans.xsd        
+	 http://code.alibabatech.com/schema/dubbo        
+	 http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- 提供方应用信息，用于计算依赖关系 -->
+	<dubbo:application name="webapp-api-provider" />
+
+	<!-- 使用zookeeper注册中心暴露服务地址 -->
+	<dubbo:registry address="zookeeper://192.168.234.128:2181" />
+
+	<!-- 用dubbo协议在20881端口暴露服务（如果有多个提供者，则端口号不能重复） -->
+	<dubbo:protocol name="dubbo" port="20881" />
+
+    <!-- 声明需要暴露的服务接口（interface是全路径名，不能自定义） -->
+	<dubbo:service interface="dubbo.web.api.service.UserService" ref="userService" />
+    <!-- 和本地bean一样实现服务 -->
+	<bean id="userService" class="com.boonya.dubbo.provider.UserServiceProvider"/>
+  
+	
+	<!-- 声明需要暴露的服务接口（interface是全路径名，不能自定义） -->
+	<dubbo:service interface="dubbo.web.api.service.ProductService" ref="productService" />
+	 <!-- 和本地bean一样实现服务 -->
+	<bean id="productService" class="com.boonya.dubbo.provider.ProductServiceProvider"/>
+	
+	
+
+	
+
+</beans>
