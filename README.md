@@ -1,6 +1,6 @@
-# doubbo-zookeeper-spring
+# dubbo-zookeeper-spring
 
-Doubbo-zookeeper-springmvc to implement Provider,API and Customer.
+Dubbo-zookeeper-springmvc to implement Provider,API and Customer.
 
 # References
 
