@@ -114,6 +114,49 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<dependency>  
+		    <groupId>org.apache.zookeeper</groupId>  
+		    <artifactId>zookeeper</artifactId>  
+		    <version>3.4.9</version>  
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-x-rpc -->
+		<dependency>
+		    <groupId>org.apache.curator</groupId>
+		    <artifactId>curator-x-rpc</artifactId>
+		    <version>3.3.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-x-discovery -->
+		<dependency>
+		    <groupId>org.apache.curator</groupId>
+		    <artifactId>curator-x-discovery</artifactId>
+		    <version>3.3.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.curator</groupId>
+		    <artifactId>curator-recipes</artifactId>
+		    <version>2.12.0</version>
+		</dependency>
+		<!-- zkclient -->
+		<dependency>
+	        <groupId>com.github.adyliu</groupId>
+	        <artifactId>zkclient</artifactId>
+	        <version>2.1.1</version>
+	    </dependency>
+	     <dependency>
+            <groupId>online.datanode.guardian</groupId>
+            <artifactId>guardian-registry</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>online.datanode.guardian</groupId>
+            <artifactId>guardian-discovery</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>online.datanode.guardian</groupId>
+            <artifactId>guardian-common</artifactId>
+            <version>1.0.1</version>
+        </dependency>
 	</dependencies>
 	
 	<build>
