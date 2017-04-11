@@ -119,6 +119,18 @@
 		    <artifactId>zookeeper</artifactId>  
 		    <version>3.4.9</version>  
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-client -->
+		<dependency>
+		    <groupId>org.apache.curator</groupId>
+		    <artifactId>curator-client</artifactId>
+		    <version>3.3.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-examples -->
+		<dependency>
+		    <groupId>org.apache.curator</groupId>
+		    <artifactId>curator-examples</artifactId>
+		    <version>3.3.0</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.curator/curator-x-rpc -->
 		<dependency>
 		    <groupId>org.apache.curator</groupId>
