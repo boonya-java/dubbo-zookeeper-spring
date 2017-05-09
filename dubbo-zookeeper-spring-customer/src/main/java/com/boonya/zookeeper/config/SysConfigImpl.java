@@ -3,7 +3,6 @@ package com.boonya.zookeeper.config;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.I0Itec.zkclient.ZkClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +22,7 @@ public class SysConfigImpl implements SysConfig {
 	/**
 	 * 存储配置内容
 	 */
-	private volatile Map<String, String> yardProperties = new HashMap<String, String>();
+	private volatile Map<String, String> properties = new HashMap<String, String>();
 
 	private ZkClient client;
 
@@ -42,10 +41,10 @@ public class SysConfigImpl implements SysConfig {
 		if (!client.exists(root)) {
 			client.createPersistent(root);
 		}
-		if (yardProperties == null) {
-			logger.info("start to init yardProperties");
-			yardProperties = this.getAll();
-			logger.info("init yardProperties over");
+		if (properties == null) {
+			logger.info("start to init properties");
+			properties = this.getAll();
+			logger.info("init properties over");
 		}
 	}
 
@@ -71,38 +70,38 @@ public class SysConfigImpl implements SysConfig {
 	}
 
 	public String get(String key) {
-		if (this.yardProperties.get(key) == null) {
+		if (this.properties.get(key) == null) {
 			String contactKey = this.contactKey(key);
 			if (!this.client.exists(contactKey)) {
 				return null;
 			}
 			return this.client.readData(contactKey);
 		}
-		return yardProperties.get(key);
+		return properties.get(key);
 	}
 
 	public Map<String, String> getAll() {
-		if (yardProperties != null) {
-			return yardProperties;
+		if (properties != null) {
+			return properties;
 		}
-		List<String> yardList = this.client.getChildren(root);
-		Map<String, String> currentYardProperties = new HashMap<String, String>();
-		for (String yard : yardList) {
-			String value = this.client.readData(yard);
-			String key = yard.substring(yard.indexOf("/") + 1);
-			currentYardProperties.put(key, value);
+		List<String> rootList = this.client.getChildren(root);
+		Map<String, String> currentProperties = new HashMap<String, String>();
+		for (String node : rootList) {
+			String value = this.client.readData(node);
+			String key = node.substring(node.indexOf("/") + 1);
+			currentProperties.put(key, value);
 		}
-		return yardProperties;
+		return properties;
 	}
 
 	public void reload() {
-		List<String> yardList = this.client.getChildren(root);
-		Map<String, String> currentYardProperties = new HashMap<String, String>();
-		for (String yard : yardList) {
-			String value = this.client.readData(this.contactKey(yard));
-			currentYardProperties.put(yard, value);
+		List<String> rootList = this.client.getChildren(root);
+		Map<String, String> currentProperties = new HashMap<String, String>();
+		for (String node : rootList) {
+			String value = this.client.readData(this.contactKey(node));
+			currentProperties.put(node, value);
 		}
-		yardProperties = currentYardProperties;
+		properties = currentProperties;
 	}
 
 }

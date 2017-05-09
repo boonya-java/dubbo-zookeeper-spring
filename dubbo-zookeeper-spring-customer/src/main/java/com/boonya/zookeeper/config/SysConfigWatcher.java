@@ -23,7 +23,7 @@ public class SysConfigWatcher {
 
 	private ZkClient client;
 
-	private ConfigListener configYardListener;
+	private ConfigListener configListener;
 
 	private SysConfig config;
 
@@ -34,12 +34,12 @@ public class SysConfigWatcher {
 	}
 
 	private void initConfigYard() {
-		configYardListener = new ConfigListener();
+		configListener = new ConfigListener();
 	}
 
 	public void watcher(String key) {
-		client.subscribeDataChanges(key, configYardListener);
-		client.subscribeChildChanges(key, configYardListener);
+		client.subscribeDataChanges(key, configListener);
+		client.subscribeChildChanges(key, configListener);
 	}
 
 	/**
