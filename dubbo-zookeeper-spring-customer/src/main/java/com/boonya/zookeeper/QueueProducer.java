@@ -6,7 +6,7 @@ public class QueueProducer {
 
 	public static void main(String[] args) throws KeeperException,InterruptedException {
 
-		String address = "192.168.234.128:2181";
+		String address = "192.168.200.122:2181";
 
 		String name = "/root";
 
