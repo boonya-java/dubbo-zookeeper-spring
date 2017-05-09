@@ -30,7 +30,7 @@ public class ZooKeeperWatcher implements Watcher{
     private static final int SESSION_TIMEOUT = 10000;  
     
     /** zookeeper服务器地址 */  
-    private static final String CONNECTION_ADDR = "192.168.234.128:2181";  
+    private static final String CONNECTION_ADDR = "192.168.200.122:2181";  
     
     /** zk父路径设置 */  
     private static final String PARENT_PATH = "/testWatch";  

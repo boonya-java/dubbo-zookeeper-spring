@@ -26,7 +26,7 @@ import org.apache.zookeeper.data.Stat;
 public class ZookeeperNoWatcher {
 	
 	 /** zookeeper地址 */  
-    private final String CONNECT_ADDR = "192.168.234.128:2181";  
+    private final String CONNECT_ADDR = "192.168.200.122:2181";  
     
     /** session超时时间 */  
     private final int SESSION_OUTTIME = 2000;// ms  
