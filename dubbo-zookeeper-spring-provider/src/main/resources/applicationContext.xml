@@ -10,7 +10,7 @@
 	<dubbo:application name="webapp-api-provider" />
 
 	<!-- 使用zookeeper注册中心暴露服务地址 -->
-	<dubbo:registry address="zookeeper://192.168.234.128:2181" />
+	<dubbo:registry address="zookeeper://192.168.200.122:2181" />
 
 	<!-- 用dubbo协议在20881端口暴露服务（如果有多个提供者，则端口号不能重复） -->
 	<dubbo:protocol name="dubbo" port="20881" />
