@@ -37,6 +37,11 @@ public class Queue extends SyncPrimitive {
 			}
 		}
 	}
+	
+	/*
+	生产者进程调用“produce（）”将一个元素添加到队列中，并将整数作为参数传递。 要向队列中添加元素，该方法使用“create（）”创建一个新节点，并使用SEQUENCE标志来指示ZooKeeper附加与根节点关联的序列器计数器的值。 以这种方式，我们对队列的元素施加了一个总的顺序，从而保证队列中最旧的元素是下一个元素。
+	*/
+
 
 	/**
 	 * Add element to the queue.
@@ -59,6 +64,12 @@ public class Queue extends SyncPrimitive {
 
 		return true;
 	}
+	
+	/*
+	要消耗元素，消费者进程获取根节点的子节点，读取具有最小计数器值的节点，并返回该元素。 请注意，如果存在冲突，则两个竞争进程之一将无法删除该节点，并且删除操作将抛出异常。
+	调用getChildren（）以字典顺序返回子项列表。 由于字典顺序不必遵循计数器值的数字顺序，因此我们需要确定哪个元素是最小的。 要确定哪个计数器值最小，我们遍历列表，并从每个元素中删除前缀“元素”。
+	*/
+
 
 	/**
 	 * Remove first element from the queue.
