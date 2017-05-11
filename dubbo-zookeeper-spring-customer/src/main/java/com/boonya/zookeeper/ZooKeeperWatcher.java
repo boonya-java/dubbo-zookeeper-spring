@@ -180,7 +180,7 @@ public class ZooKeeperWatcher implements Watcher{
      * @param path 
      *            节点路径 
      */  
-    private List<String> getChildren(String path, boolean needWatch) {  
+    public List<String> getChildren(String path, boolean needWatch) {  
         try {  
             return this.zk.getChildren(path, needWatch);  
         } catch (Exception e) {  
